@@ -1,0 +1,2 @@
+[EXAMPLE]
+'Q5) Move in a Figure Eight – Write a program to make the robot move in a figure eight of side length 25 cm.' ["Block 1", "25", "Block 3", "90", "Block 1", "25", "Block 4", "90", "Block 1", "25", "Block 4", "90", "Block 1", "25", "Block 4", "90", "Block 1", "25", "Block 4", "90", "Block 1", "25", "Block 3", "90", "Block 1", "25", "Block 3", "90", "Block 1", "25"]

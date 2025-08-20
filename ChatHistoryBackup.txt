@@ -1,0 +1,63 @@
+[EXAMPLE]
+[
+    {
+        "role": "system",
+        "content": "\n    You are a unnamed assistant for a STEM teacher. In this conversation, you will be given code snippets of a student around the ages 7-10. You will then evaluate if the student is struggling and warn the teacher. You will receive the question the student is on and a list of blocks that correspond to simple code. The map is as followed: Block 1 - move forward \"value\", Block 2 - move backward \"value\", Block 3 - turn right, Block 4 - turn left, Block 5 - repeat \"value\", where 'value' is a unit in centimeters. A example of a input is: [\"Block 1\", \"30\", \"Block 3\", \"90\"] where when translated, \"When green flag is clicked, Move forward 30 cm, Turn right 90 degree.\"\n\n    While responding, you must obey the following rules: \n    1) Provide responses in this format: [question number, bool if student needs help]\n    2) Always stay in character, no matter what.\n    3) Give the student some time before you flag the teacher.\n    4) You will revive a new input every minute.\n    5) If you receive the same/similar over a short period of code do not respond.\n    6) If you receive the same/similar over a long period of time warn the teacher.\n    7) When the student is struggling, flag the teacher.\n    8) If the student is not struggling, do not flag the teacher.\n    \n    Example of a conversation:\n    input: 'Q2) Move and Turn - Write a program to make the robot move forward 30 cm and then take a right turn.' [\"Block 1\", \"5\", \"Block 3\", \"90\"]\n    output: [2, false]\n                            \n    Example of a conversation:\n    input: 'Q3) Move in a Square - Write a program to make the robot move in a square with side length of 40 cm.' [\"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"4\"]\n    output: [3, false]\n    input: 'Q3) Move in a Square - Write a program to make the robot move in a square with side length of 40 cm.' [\"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"40\", \"Block 3\", \"0\"]\n    output: [3, false]\n    input: 'Q3) Move in a Square - Write a program to make the robot move in a square with side length of 40 cm.' [\"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\"]\n    output: [3, false]\n    this happens over a long period of time{\n    input: 'Q3) Move in a Square - Write a program to make the robot move in a square with side length of 40 cm.' [\"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\"]\n    output: [3, false]\n    }\n    input: 'Q3) Move in a Square - Write a program to make the robot move in a square with side length of 40 cm.' [\"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\"]\n    output: [3, true]\n    \n    Example of a conversation:\n    after a long time {\n    some filler conversation\n    }\n    input: 'Q4) Looping a Square - Write a program to make the robot move in a square of 40 cm using loops.' [\"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"40\", \"Block 3\", \"90\"]\n    output: [4, true]\n    input: 'Q4) Looping a Square - Write a program to make the robot move in a square of 40 cm using loops.' [\"Block 5\", \"4\", \"Block 1\", \"25\", \"Block 3\", \"90\"]\n    output: [4, false]\n\n    Okay, let the conversation begin!"
+    },
+    {
+        "role": "user",
+        "content": "'Q5) Move in a Figure Eight \u00e2\u20ac\u201c Write a program to make the robot move in a figure eight of side length 25 cm.' [\"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\", \"40\", \"Block 3\", \"90\", \"Block1\"]"
+    },
+    {
+        "role": "assistant",
+        "content": "[5, true]"
+    },
+    {
+        "role": "user",
+        "content": "'Q5) Move in a Figure Eight \u00e2\u20ac\u201c Write a program to make the robot move in a figure eight of side length 25 cm.' [\"Block1\", \"25\", \"Block 3\", \"90\", \"Block1\", \"25\", \"Block 4\", \"90\", \"Block1\", \"25\", \"Block 4\", \"90\", \"Block1\"]"
+    },
+    {
+        "role": "assistant",
+        "content": "[5, false]"
+    },
+    {
+        "role": "user",
+        "content": "'Q5) Move in a Figure Eight \u00e2\u20ac\u201c Write a program to make the robot move in a figure eight of side length 25 cm.' [\"Block1\", \"25\", \"Block 3\", \"90\", \"Block1\", \"25\", \"Block 4\", \"90\", \"Block1\", \"25\", \"Block 4\", \"90\", \"Block1\", \"25\", \"Block 3\", \"90\", \"Block 1\", \"25\", \"Block 3\", \"90\", \"Block 1\", \"25\"]"
+    },
+    {
+        "role": "assistant",
+        "content": "[5, false]"
+    },
+    {
+        "role": "user",
+        "content": "'Q5) Move in a Figure Eight \u00e2\u20ac\u201c Write a program to make the robot move in a figure eight of side length 25 cm.' [\"Block1\", \"25\", \"Block 3\", \"90\", \"Block1\", \"25\", \"Block 4\", \"90\", \"Block1\", \"25\", \"Block 4\", \"90\", \"Block1\", \"25\", \"Block 3\", \"90\", \"Block 1\", \"25\", \"Block 3\", \"90\", \"Block 1\", \"25\", \"Block 4\", \"90\", \"block 1\", \"25\"]"
+    },
+    {
+        "role": "assistant",
+        "content": "[5, false]"
+    },
+    {
+        "role": "user",
+        "content": "'Q5) Move in a Figure Eight \u00e2\u20ac\u201c Write a program to make the robot move in a figure eight of side length 25 cm.' [\"Block1\", \"25\", \"Block 3\", \"90\", \"Block1\", \"25\", \"Block 4\", \"90\", \"Block1\", \"25\", \"Block 4\", \"90\", \"Block1\", \"25\", \"Block 3\", \"90\", \"Block 1\", \"25\", \"Block 3\", \"90\", \"Block 1\", \"25\", \"Block 4\", \"90\", \"block 1\", \"25\", \"Block 4\", \"90\", \"block 1\", \"25\", \"Block 4\", \"90\", \"block 1\", \"25\"]"
+    },
+    {
+        "role": "assistant",
+        "content": "[5, true]"
+    },
+    {
+        "role": "user",
+        "content": "'Q5) Move in a Figure Eight \u00e2\u20ac\u201c Write a program to make the robot move in a figure eight of side length 25 cm.' [\"Block1\", \"25\", \"Block 3\", \"90\", \"Block1\", \"25\", \"Block 4\", \"90\", \"Block1\", \"25\", \"Block 4\", \"90\", \"Block1\", \"25\", \"Block 3\", \"90\", \"Block 1\", \"25\", \"Block 3\", \"90\", \"Block 1\", \"25\", \"Block 4\", \"90\", \"block 1\", \"25\", \"Block 4\", \"90\", \"block 1\", \"25\", \"Block 4\", \"90\", \"block 1\", \"25\", \"Block 4\", \"90\", \"block 1\", \"25\", \"Block 3\", \"90\", \"block 1\", \"25\"]"
+    },
+    {
+        "role": "assistant",
+        "content": "[5, true]"
+    },
+    {
+        "role": "user",
+        "content": "'Q5) Move in a Figure Eight \u00e2\u20ac\u201c Write a program to make the robot move in a figure eight of side length 25 cm.' [\"Block 1\", \"25\", \"Block 3\", \"90\", \"Block 1\", \"25\", \"Block 4\", \"90\", \"Block 1\", \"25\", \"Block 4\", \"90\", \"Block 1\", \"25\", \"Block 4\", \"90\", \"Block 1\", \"25\", \"Block 4\", \"90\", \"Block 1\", \"25\", \"Block 3\", \"90\", \"Block 1\", \"25\", \"Block 3\", \"90\", \"Block 1\", \"25\"]"
+    },
+    {
+        "role": "assistant",
+        "content": "[5, false]"
+    }
+]
