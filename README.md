@@ -45,4 +45,4 @@ This Python application demonstrates an AI-driven system for monitoring and supp
 5. Repeat as needed for new submissions.
 
 ## License
-MIT License
+The code in this project is licensed under MIT license.
