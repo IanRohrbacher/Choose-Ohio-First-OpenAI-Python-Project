@@ -1,5 +1,6 @@
 # COF OpenAI Python Project
-This project was created for my 2024/25 Choose Ohio First (COF) scholarship. It adapts and extends the [Babagaboosh](https://github.com/DougDougGithub/Babagaboosh) codebase to explore the use of Large Language Models (LLMs) for real-time, automated feedback and monitoring in coding education.
+2024/25 Choose Ohio First (COF) Scholarship Project — Proof of Concept
+Adapts and extends the [Babagaboosh](https://github.com/DougDougGithub/Babagaboosh) codebase to explore the use of Large Language Models (LLMs) for real-time, automated feedback and monitoring in coding education.
 
 
 ## Project Summary
@@ -10,8 +11,6 @@ This Python application demonstrates an AI-driven system for monitoring and supp
 - Uses OpenAI's GPT-4o to evaluate student progress and flag struggles
 - Automatically alerts instructors when intervention is needed
 - Persists chat history for session continuity and retrospective review
-
-> **Note:** This project is a proof-of-concept and is not actively maintained.
 
 
 ## How It Works
@@ -44,5 +43,12 @@ This Python application demonstrates an AI-driven system for monitoring and supp
 4. The system will analyze the submission and update the backup file.
 5. Repeat as needed for new submissions.
 
+
+---
+> **SCHOLARSHIP PROJECT / PROOF OF CONCEPT:**
+> This project is not actively maintained. Provided for reference only.
+---
+
+
 ## License
-The code in this project is licensed under MIT license.
+The code in this project is licensed under the MIT license.
